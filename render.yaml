@@ -7,7 +7,7 @@ services:
       pip install psycopg2-binary &&
       pip install apache-superset
     startCommand: >
-      ./setup.sh && flask run --host=0.0.0.0 --port=8088
+      ./setup.sh && superset run -h 0.0.0.0 -p 8088
     envVars:
       - key: SUPERSET_CONFIG_PATH
         value: /opt/render/project/src/superset_config.py
