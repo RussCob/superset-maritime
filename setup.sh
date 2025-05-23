@@ -1,16 +1,18 @@
 #!/bin/bash
-set -e
 
-# Initialize the database
+# Step 1: Install Python dependencies
+pip install -r requirements.txt
+
+# Step 2: Upgrade the Superset database
 superset db upgrade
 
-# Create admin user if not exists
+# Step 3: Create admin user (only if it doesn't exist)
 superset fab create-admin \
-  --username russdevv \
-  --firstname Russ \
-  --lastname Devv \
-  --email russ.devv@outlook.com \
-  --password Admin123 || true
+  --username admin \
+  --firstname Superset \
+  --lastname Admin \
+  --email admin@superset.com \
+  --password admin
 
-# Setup roles and permissions
+# Step 4: Initialize Superset
 superset init
